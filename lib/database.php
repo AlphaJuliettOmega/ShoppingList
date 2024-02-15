@@ -41,10 +41,41 @@ class Database {
         }
     }
 
+    // Execute the prepared statement with error handling
+    public function execute()
+    {
+        try {
+            return $this->stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+
+    // Bind values for safe query handling
+    public function bind($param, $value, $type = null)
+    {
+        if (is_null($type)) {
+            switch (true) {
+                case is_int($value):
+                    $type = PDO::PARAM_INT;
+                    break;
+                case is_bool($value):
+                    $type = PDO::PARAM_BOOL;
+                    break;
+                case is_null($value):
+                    $type = PDO::PARAM_NULL;
+                    break;
+                default:
+                    $type = PDO::PARAM_STR;
+            }
+        }
+        $this->stmt->bindValue($param, $value, $type);
+    }
+
     // Get result set as array of objects
     public function resultSet() {
         $this->stmt->execute();
-        echo $this->stmt->rowCount() . " records found";
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
     

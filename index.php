@@ -7,11 +7,11 @@ require_once 'controller/placeholder.php';
 // Define routes
 $routes = [
     '/' => 'HomeController@index',
-    '/placeholder' => 'PlaceholderController@index',
+    '/placeholder' => 'PlaceholderController@index'
     // Add more routes here
 ];
 
-$appVersion = '0.0.1';
+$appVersion = '0.1.0';
 
 // Get the requested URL
 $requestUrl = $_SERVER['REQUEST_URI'];
