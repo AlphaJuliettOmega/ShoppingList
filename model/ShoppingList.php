@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../lib/database.php';
+
 // Shopping list model
 class ShoppingList {
     // Properties
