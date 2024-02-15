@@ -72,7 +72,6 @@ class HomeController extends Controller {
     }
     // handler for edit request
     public function checkEditItemToggle($data) {
-        var_dump($data);
         // init data array
         $data = [
             'id' => $data['id'],
@@ -86,7 +85,6 @@ class HomeController extends Controller {
     }
     // handler for delete request
     public function checkDeleteItem($data) {
-        var_dump($data);
         // delete item via model
         if (!$this->model('ShoppingList')->deleteItem($data['id'])) {
             die('Something went wrong');
