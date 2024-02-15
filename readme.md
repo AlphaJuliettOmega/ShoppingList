@@ -9,6 +9,9 @@ Run the Migration files in the `migrations` folder to create the database and ta
 
 Run the XAMPP server Apache & Mysql services and navigate to `localhost:80` in the browser.
 
+## Preview
+![alt text](preview.png)
+
 ## Optimizations & improvements
 - Implement a base model such that the models can inherit from it, as there's only 1 this is not yet needed.
 - Implement a pattern for small reusable components for use in View files
